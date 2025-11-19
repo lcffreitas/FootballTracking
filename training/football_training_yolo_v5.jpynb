@@ -1,0 +1,262 @@
+{
+ "cells": [
+  {
+   "metadata": {},
+   "cell_type": "markdown",
+   "source": "# Get Dataset",
+   "id": "1328b557865eda69"
+  },
+  {
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2025-11-18T14:43:46.515146Z",
+     "start_time": "2025-11-18T14:43:08.227545Z"
+    }
+   },
+   "cell_type": "code",
+   "source": [
+    "!pip install roboflow\n",
+    "\n",
+    "from roboflow import Roboflow\n",
+    "rf = Roboflow(api_key=\"36AYLeCodianuEBsWwtW\")\n",
+    "project = rf.workspace(\"roboflow-jvuqo\").project(\"football-players-detection-1-detection-3zvbc\")\n",
+    "version = project.version(1)\n",
+    "dataset = version.download(\"yolov5\")\n"
+   ],
+   "id": "a166da577720dbb6",
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting roboflow\n",
+      "  Downloading roboflow-1.2.11-py3-none-any.whl.metadata (9.7 kB)\n",
+      "Requirement already satisfied: certifi in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (2025.8.3)\n",
+      "Collecting idna==3.7 (from roboflow)\n",
+      "  Downloading idna-3.7-py3-none-any.whl.metadata (9.9 kB)\n",
+      "Requirement already satisfied: cycler in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (0.12.1)\n",
+      "Requirement already satisfied: kiwisolver>=1.3.1 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (1.4.8)\n",
+      "Requirement already satisfied: matplotlib in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (3.10.3)\n",
+      "Requirement already satisfied: numpy>=1.18.5 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (2.2.6)\n",
+      "Collecting opencv-python-headless==4.10.0.84 (from roboflow)\n",
+      "  Downloading opencv_python_headless-4.10.0.84-cp37-abi3-win_amd64.whl.metadata (20 kB)\n",
+      "Requirement already satisfied: Pillow>=7.1.2 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (11.3.0)\n",
+      "Collecting pi-heif<2 (from roboflow)\n",
+      "  Downloading pi_heif-1.1.1-cp313-cp313-win_amd64.whl.metadata (6.7 kB)\n",
+      "Collecting pillow-avif-plugin<2 (from roboflow)\n",
+      "  Downloading pillow_avif_plugin-1.5.2-cp313-cp313-win_amd64.whl.metadata (2.2 kB)\n",
+      "Requirement already satisfied: python-dateutil in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (2.9.0.post0)\n",
+      "Requirement already satisfied: python-dotenv in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (1.1.1)\n",
+      "Requirement already satisfied: requests in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (2.32.4)\n",
+      "Requirement already satisfied: six in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (1.17.0)\n",
+      "Requirement already satisfied: urllib3>=1.26.6 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (2.5.0)\n",
+      "Requirement already satisfied: tqdm>=4.41.0 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (4.67.1)\n",
+      "Requirement already satisfied: PyYAML>=5.3.1 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (6.0.2)\n",
+      "Requirement already satisfied: requests-toolbelt in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from roboflow) (1.0.0)\n",
+      "Collecting filetype (from roboflow)\n",
+      "  Using cached filetype-1.2.0-py2.py3-none-any.whl.metadata (6.5 kB)\n",
+      "Requirement already satisfied: colorama in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from tqdm>=4.41.0->roboflow) (0.4.6)\n",
+      "Requirement already satisfied: contourpy>=1.0.1 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from matplotlib->roboflow) (1.3.2)\n",
+      "Requirement already satisfied: fonttools>=4.22.0 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from matplotlib->roboflow) (4.58.5)\n",
+      "Requirement already satisfied: packaging>=20.0 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from matplotlib->roboflow) (25.0)\n",
+      "Requirement already satisfied: pyparsing>=2.3.1 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from matplotlib->roboflow) (3.2.3)\n",
+      "Requirement already satisfied: charset_normalizer<4,>=2 in c:\\users\\lucas.freitas\\appdata\\local\\programs\\python\\python313\\lib\\site-packages (from requests->roboflow) (3.4.3)\n",
+      "Downloading roboflow-1.2.11-py3-none-any.whl (89 kB)\n",
+      "Downloading idna-3.7-py3-none-any.whl (66 kB)\n",
+      "Downloading opencv_python_headless-4.10.0.84-cp37-abi3-win_amd64.whl (38.8 MB)\n",
+      "   ---------------------------------------- 0.0/38.8 MB ? eta -:--:--\n",
+      "   -- ------------------------------------- 2.6/38.8 MB 14.7 MB/s eta 0:00:03\n",
+      "   ----- ---------------------------------- 5.2/38.8 MB 13.0 MB/s eta 0:00:03\n",
+      "   -------- ------------------------------- 7.9/38.8 MB 12.9 MB/s eta 0:00:03\n",
+      "   ----------- ---------------------------- 11.0/38.8 MB 13.3 MB/s eta 0:00:03\n",
+      "   -------------- ------------------------- 14.2/38.8 MB 13.7 MB/s eta 0:00:02\n",
+      "   ----------------- ---------------------- 17.0/38.8 MB 13.9 MB/s eta 0:00:02\n",
+      "   --------------------- ------------------ 20.4/38.8 MB 14.0 MB/s eta 0:00:02\n",
+      "   ------------------------ --------------- 23.3/38.8 MB 14.0 MB/s eta 0:00:02\n",
+      "   -------------------------- ------------- 26.0/38.8 MB 13.8 MB/s eta 0:00:01\n",
+      "   ------------------------------ --------- 29.4/38.8 MB 14.0 MB/s eta 0:00:01\n",
+      "   --------------------------------- ------ 32.8/38.8 MB 14.1 MB/s eta 0:00:01\n",
+      "   ------------------------------------ --- 35.7/38.8 MB 14.1 MB/s eta 0:00:01\n",
+      "   ---------------------------------------  38.5/38.8 MB 14.3 MB/s eta 0:00:01\n",
+      "   ---------------------------------------- 38.8/38.8 MB 13.4 MB/s eta 0:00:00\n",
+      "Downloading pi_heif-1.1.1-cp313-cp313-win_amd64.whl (1.9 MB)\n",
+      "   ---------------------------------------- 0.0/1.9 MB ? eta -:--:--\n",
+      "   ---------------------------------------- 1.9/1.9 MB 14.0 MB/s eta 0:00:00\n",
+      "Downloading pillow_avif_plugin-1.5.2-cp313-cp313-win_amd64.whl (9.9 MB)\n",
+      "   ---------------------------------------- 0.0/9.9 MB ? eta -:--:--\n",
+      "   ------------ --------------------------- 3.1/9.9 MB 16.2 MB/s eta 0:00:01\n",
+      "   ----------------------- ---------------- 5.8/9.9 MB 14.2 MB/s eta 0:00:01\n",
+      "   ------------------------------------ --- 8.9/9.9 MB 14.2 MB/s eta 0:00:01\n",
+      "   ---------------------------------------- 9.9/9.9 MB 13.5 MB/s eta 0:00:00\n",
+      "Using cached filetype-1.2.0-py2.py3-none-any.whl (19 kB)\n",
+      "Installing collected packages: pillow-avif-plugin, filetype, pi-heif, opencv-python-headless, idna, roboflow\n",
+      "\n",
+      "   ---------------------------------------- 0/6 [pillow-avif-plugin]\n",
+      "   ------ --------------------------------- 1/6 [filetype]\n",
+      "   ------ --------------------------------- 1/6 [filetype]\n",
+      "   ------ --------------------------------- 1/6 [filetype]\n",
+      "   ------ --------------------------------- 1/6 [filetype]\n",
+      "   ------------- -------------------------- 2/6 [pi-heif]\n",
+      "   ------------- -------------------------- 2/6 [pi-heif]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "  Attempting uninstall: idna\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "    Found existing installation: idna 3.10\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "    Uninstalling idna-3.10:\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "      Successfully uninstalled idna-3.10\n",
+      "   -------------------- ------------------- 3/6 [opencv-python-headless]\n",
+      "   -------------------------- ------------- 4/6 [idna]\n",
+      "   -------------------------- ------------- 4/6 [idna]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   --------------------------------- ------ 5/6 [roboflow]\n",
+      "   ---------------------------------------- 6/6 [roboflow]\n",
+      "\n",
+      "Successfully installed filetype-1.2.0 idna-3.7 opencv-python-headless-4.10.0.84 pi-heif-1.1.1 pillow-avif-plugin-1.5.2 roboflow-1.2.11\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "[notice] A new release of pip is available: 25.1.1 -> 25.3\n",
+      "[notice] To update, run: python.exe -m pip install --upgrade pip\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "loading Roboflow workspace...\n",
+      "loading Roboflow project...\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Downloading Dataset Version Zip in football-players-detection-1 to yolov5pytorch:: 100%|██████████| 148663/148663 [00:11<00:00, 13247.66it/s]"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Extracting Dataset Version Zip to football-players-detection-1 in yolov5pytorch:: 100%|██████████| 1338/1338 [00:01<00:00, 736.58it/s]\n"
+     ]
+    }
+   ],
+   "execution_count": 1
+  },
+  {
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2025-11-18T14:55:18.676989Z",
+     "start_time": "2025-11-18T14:55:18.668521Z"
+    }
+   },
+   "cell_type": "code",
+   "source": "dataset.location",
+   "id": "9a48753a20a9563e",
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'C:\\\\dev\\\\FootballTracking\\\\training\\\\football-players-detection-1'"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "execution_count": 2
+  },
+  {
+   "metadata": {
+    "ExecuteTime": {
+     "end_time": "2025-11-18T16:35:57.834438Z",
+     "start_time": "2025-11-18T16:35:55.681239Z"
+    }
+   },
+   "cell_type": "code",
+   "source": [
+    "import shutil\n",
+    "\n",
+    "shutil.move('football-players-detection-1/train',\n",
+    "            'football-players-detection-1/football-players-detection-1/train'\n",
+    "            )\n",
+    "\n",
+    "shutil.move('football-players-detection-1/test',\n",
+    "            'football-players-detection-1/football-players-detection-1/test'\n",
+    "            )\n",
+    "\n",
+    "shutil.move('football-players-detection-1/valid',\n",
+    "            'football-players-detection-1/football-players-detection-1/valid'\n",
+    "            )"
+   ],
+   "id": "a5d899e737189dc9",
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'football-players-detection-1/football-players-detection-1/valid'"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "execution_count": 3
+  },
+  {
+   "metadata": {},
+   "cell_type": "markdown",
+   "source": "# Training",
+   "id": "a4098e48de2947ce"
+  },
+  {
+   "metadata": {},
+   "cell_type": "code",
+   "outputs": [],
+   "execution_count": null,
+   "source": "!yolo task=detect mode=train model=yolov5x.pt data={dataset.location}/data.yaml epochs=100 imgsz=640",
+   "id": "4fa3bc47c61e0d4e"
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "name": "python3",
+   "language": "python",
+   "display_name": "Python 3 (ipykernel)"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
